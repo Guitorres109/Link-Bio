@@ -27,52 +27,58 @@
                 <img src="../images/email.png" alt="">
             </a>   
         </div>
-        <p>Estudante de Desenvolvimento de Sistemas - SESI/SENAI</p>
+        <div class="sesi-senai">
+            <p>Estudante de Desenvolvimento de Sistemas</p>
+            <div class="logo">
+                <img src="../images/Sesi-senai.png" alt="" id="Sesi">
+                <img src="../images/Sesi-senai (1).png" alt="" id="senai">
+            </div>
+        </div>
     </header>
     <main>
-        <section class="card">
+        <section class="card reveal">
             <h2>Lógica de programação</h2>
             <p></p>
             <div class="cursos">
                 <img src="../images/logica-programacao.png" alt="">
             </div>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Segurança no Trabalho</h2>
             <p></p>
             <div class="cursos">
                 <img src="../images/Segurança-trabalho.png" alt="">
             </div>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Técnologia da Informação e comunicação</h2>
             <p></p>
             <div class="cursos">
                 <img src="../images/Ti-e-com.png" alt="">
             </div>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Desvendando a descarbonização</h2>
             <p></p>
             <div class="cursos">
                 <img src="../images/descarbonizacao.png" alt="">
             </div>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Ética na inteligência Artificial</h2>
             <p></p>
             <div class="cursos">
                 <img src="../images/etica-IA.png" alt="">
             </div>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Excel Básico</h2>
             <p></p>
             <div class="cursos">
                 <img src="../images/excel-basico.png" alt="">
             </div>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Por dentro da Segurança Cibernética</h2>
             <p></p>
             <div class="cursos">
@@ -80,8 +86,19 @@
             </div>
         </section>
     </main>
-    <footer>
-        <p>Criado por mim em 2025</p>
-    </footer>
+    <script>
+        const items = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // só uma vez
+                }
+            });
+        }, { threshold: 0.5 });
+
+        items.forEach(item => observer.observe(item));
+    </script>
 </body>
 </html>

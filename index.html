@@ -27,21 +27,27 @@
                 <img src="assets/images/email.png" alt="">
             </a>   
         </div>
-        <p>Estudante de Desenvolvimento de Sistemas - SESI/SENAI</p>
+        <div class="sesi-senai">
+            <p>Estudante de Desenvolvimento de Sistemas</p>
+            <div class="logo">
+                <img src="assets/images/Sesi-senai.png" alt="" id="Sesi">
+                <img src="assets/images/Sesi-senai (1).png" alt="" id="senai">
+            </div>
+        </div>
     </header>
     <main>
-        <section class="card">
+        <section class="card reveal">
     <h2>Sobre Mim</h2>
         <input type="checkbox" id="toggle-expansao">
         <label for="toggle-expansao" class="botao-expansao">Ver Mais</label>
         <p class="conteudo-expandido">Me chamo Guilherme Torres, nasci no dia 10 de março de 2009 em Guarulhos, sou cátolico, gosto de videogames, futebol, tecnologia e programação, estou atualmente cursando o segundo ano do ensino médio no SESI Guarulhos e cursando também o curso de Técnico em Desenvolvimento de Sistemas no SENAI Guarulhos.
     </p>
   </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Projetos</h2>
             <a href="https://github.com/Guitorres109" target="_blank" class="botao">Ver no GitHub</a>
         </section>
-        <section class="card">
+        <section class="card reveal">
             <h2>Cursos</h2>
             <a href="assets/pages/cursos.html" class="botao">Meus Cursos</a>
         </section>
@@ -49,5 +55,19 @@
     <footer>
         <p>Criado por mim em 2025</p>
     </footer>
+    <script>
+        const items = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // só uma vez
+                }
+            });
+        }, { threshold: 0.5 });
+
+        items.forEach(item => observer.observe(item));
+    </script>
 </body>
 </html>
